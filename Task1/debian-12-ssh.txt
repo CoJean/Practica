@@ -1,0 +1,75 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libllvm17t64 linux-headers-6.8.0-36 linux-tools-6.8.0-36
+Use 'sudo apt autoremove' to remove them.
+Get more security updates through Ubuntu Pro with 'esm-apps' enabled:
+  libvlc5 freerdp2-x11 libzvbi-common vlc-data libvlccore9 libjs-katex
+  libwinpr2-2t64 libcjson1 libavdevice60 ffmpeg libpostproc57 buildah
+  libavcodec60 libgstreamer-plugins-bad1.0-0 libzvbi0t64 libavutil58
+  libswscale7 podman libfreerdp-client2-2t64 fonts-katex libswresample4
+  vlc-plugin-video-output 7zip libavformat60 libfreerdp2-2t64 libvlc-bin
+  vlc-plugin-base libavfilter9
+Learn more about Ubuntu Pro at https://ubuntu.com/pro
+The following upgrades have been deferred due to phasing:
+  ubuntu-drivers-common
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2025-07-01 10:31:02 EEST; 16ms ago
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 62753 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 62755 (sshd)
+      Tasks: 1 (limit: 9442)
+     Memory: 1.3M (peak: 1.5M)
+        CPU: 25ms
+     CGroup: /system.slice/ssh.service
+             └─62755 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox sshd[62755]: Server listening on :: port 22.
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+Listing...
+ubuntu-drivers-common/noble-updates 1:0.9.7.6ubuntu3.2 amd64 [upgradable from: 1:0.9.7.6ubuntu3]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libllvm17t64 linux-headers-6.8.0-36 linux-tools-6.8.0-36
+Use 'sudo apt autoremove' to remove them.
+The following upgrades have been deferred due to phasing:
+  ubuntu-drivers-common
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+openssh-server is already the newest version (1:9.6p1-3ubuntu13.12).
+The following packages were automatically installed and are no longer required:
+  libllvm17t64 linux-headers-6.8.0-36 linux-tools-6.8.0-36
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2025-07-01 10:31:02 EEST; 6min ago
+TriggeredBy: ● ssh.socket
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 62753 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 62755 (sshd)
+      Tasks: 1 (limit: 9442)
+     Memory: 4.0M (peak: 20.4M)
+        CPU: 152ms
+     CGroup: /system.slice/ssh.service
+             └─62755 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox sshd[62755]: Server listening on :: port 22.
+Jul 01 10:31:02 cojan-alin-ionut-VirtualBox systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+Jul 01 10:31:20 cojan-alin-ionut-VirtualBox sshd[62761]: Accepted password for cojan-alin-ionut from 127.0.0.1 port 55800 ssh2
+Jul 01 10:31:20 cojan-alin-ionut-VirtualBox sshd[62761]: pam_unix(sshd:session): session opened for user cojan-alin-ionut(uid=1000) by cojan-alin-ionut(uid=0)
+OpenSSH_9.6p1 Ubuntu-3ubuntu13.12, OpenSSL 3.0.13 30 Jan 2024
