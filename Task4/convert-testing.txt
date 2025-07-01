@@ -1,0 +1,10 @@
+Comparație performanță convertor Go
+-----------------------------------
+Timp fără cache (mat.in): 0.3263 secunde
+Timp fără cache (mat.in.x): 0.3377 secunde
+
+Timp cu cache 100 intrări (mat.in): 0.0987 secunde
+Timp cu cache 100 intrări (mat.in.x): 0.1042 secunde
+
+Timp cu cache 1000 intrări (mat.in): 0.1100 secunde
+Timp cu cache 1000 intrări (mat.in.x): 0.1051 secunde
