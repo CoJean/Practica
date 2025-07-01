@@ -1,0 +1,5 @@
+Comparatie performanta: secvential vs paralel
+
+Timp secvential: 0.00 secunde
+Timp paralel: 0.03 secunde
+Speedup: 0.01x
