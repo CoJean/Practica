@@ -1,0 +1,6 @@
+Comparație performanță convertor Rust
+--------------------------------------
+Timp fără cache: 0.2154 secunde
+Timp cu cache 100 intrări: 0.0033 secunde
+Timp cu cache 1000 intrări: 0.0025 secunde
+Timp cu cache 10000 intrări: 0.0024 secunde
