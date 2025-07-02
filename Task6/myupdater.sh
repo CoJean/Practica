@@ -6,7 +6,7 @@ LOCKFILE="/tmp/myupdater.lock"
 NETWORK_CHECKS=5
 NETWORK_WAIT=20 
 
-# Repo-urile vor fi clonate în Task6/git_repos/
+
 REPOS_DIR="$BASE_DIR/git_repos"
 MIRRORS=(
   "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
