@@ -1,0 +1,46 @@
+Comenzi folosite Task5
+
+1. Construire imagine container pentru compilator C++ + SSH
+podman build -t debian12-ssh -f Dockerfile-debian12-ssh .
+
+
+2. Generare cheie SSH pe host
+
+mkdir -p ~/.ssh
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
+
+3. Rulare container cu portul SSH expus și cu cheia ta publică montată în container pentru autentificare fără parolă
+
+podman run -d -p 2222:22 --name debian12-ssh-nopass \
+  -v ~/.ssh/id_ed25519.pub:/home/sshuser/.ssh/authorized_keys:Z \
+  debian12-ssh
+
+4. Setare permisiuni pentru fișierul authorized_keys în container
+
+podman exec -it debian12-ssh-nopass bash -c "chown sshuser:sshuser /home/sshuser/.ssh/authorized_keys && chmod 600 /home/sshuser/.ssh/authorized_keys"
+
+5. Copiere program C++ în container (de pe host)
+
+podman cp hello.cpp debian12-ssh-nopass:/home/sshuser/hello.cpp
+
+6. Compilare program C++ în container
+
+podman exec -it debian12-ssh-nopass g++ /home/sshuser/hello.cpp -o /home/sshuser/hello
+
+7. Rulare program C++ în container
+
+podman exec -it debian12-ssh-nopass /home/sshuser/hello
+
+Output: Hello, World!
+
+8. Pornire server SSH în container în mod debug (opțional)
+
+podman exec -it debian12-ssh-nopass /usr/sbin/sshd -d -p 2222
+
+9. Conectare SSH din host către container (fără parolă)
+
+ssh -p 2222 sshuser@localhost
+
+avertisment de tipul „REMOTE HOST IDENTIFICATION HAS CHANGED!”, șterge cheia veche din known_hosts:
+
+ssh-keygen -f ~/.ssh/known_hosts -R "[localhost]:2222"

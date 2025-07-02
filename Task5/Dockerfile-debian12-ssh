@@ -1,0 +1,11 @@
+FROM debian:12
+
+RUN apt-get update && apt-get install -y openssh-server g++ build-essential
+
+RUN useradd -m sshuser && echo "sshuser:password" | chpasswd && mkdir /home/sshuser/.ssh && chown sshuser:sshuser /home/sshuser/.ssh
+
+RUN mkdir /var/run/sshd
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D", "-p", "22"]

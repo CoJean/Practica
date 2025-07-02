@@ -1,0 +1,25 @@
+FROM debian:12
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
+    openssh-server \
+    sudo \
+    && rm -rf /var/lib/apt/lists/*
+
+
+RUN useradd -m -s /bin/bash sshuser && echo "sshuser ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sshuser
+
+# Configurează SSH: creează folderul necesar pentru sshd
+RUN mkdir /var/run/sshd
+
+
+RUN sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+
+EXPOSE 22
+
+RUN mkdir -p /home/sshuser/.ssh && chown sshuser:sshuser /home/sshuser/.ssh && chmod 700 /home/sshuser/.ssh
+
+
+CMD ["/usr/sbin/sshd", "-D"]
