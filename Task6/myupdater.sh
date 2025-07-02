@@ -4,7 +4,7 @@ BASE_DIR="$HOME/Task6"
 LOGFILE="$BASE_DIR/myupdater.log"
 LOCKFILE="/tmp/myupdater.lock"
 NETWORK_CHECKS=5
-NETWORK_WAIT=20  # secunde între verificări
+NETWORK_WAIT=20 
 
 # Repo-urile vor fi clonate în Task6/git_repos/
 REPOS_DIR="$BASE_DIR/git_repos"
@@ -19,7 +19,7 @@ log() {
   echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOGFILE"
 }
 
-# Verificare instanță unică
+
 if [ -e "$LOCKFILE" ]; then
   PID=$(cat "$LOCKFILE")
   if kill -0 "$PID" 2>/dev/null; then
@@ -33,7 +33,7 @@ fi
 
 echo $$ > "$LOCKFILE"
 
-# Verificare conectivitate rețea
+
 for ((i=1; i<=NETWORK_CHECKS; i++)); do
   if ping -c1 8.8.8.8 &>/dev/null; then
     break
@@ -48,11 +48,11 @@ for ((i=1; i<=NETWORK_CHECKS; i++)); do
   fi
 done
 
-# Actualizare Ubuntu (în fundal)
+
 sudo apt update && sudo apt upgrade -y >> "$LOGFILE" 2>&1 &
 APT_PID=$!
 
-# Actualizare repo-uri git (în paralel)
+
 for repo in "${MIRRORS[@]}"; do
   reponame=$(basename "$repo" .git)
   if [ ! -d "$REPOS_DIR/$reponame" ]; then
